@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alif Restaurant Billing</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .menu { margin: 20px; }
+        .menu button { margin: 5px; padding: 10px; cursor: pointer; }
+        .bill { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Alif Restaurant - Billing System</h1>
+    
+    <h2>BBQ Items</h2>
+    <div class="menu">
+        <button onclick="addToBill('Chicken BBQ (Quarter)', 300)">Chicken BBQ (Quarter) - ৳300</button>
+        <button onclick="addToBill('Beef Boti Kebab', 350)">Beef Boti Kebab - ৳350</button>
+        <button onclick="addToBill('Mutton Sheek Kebab', 400)">Mutton Sheek Kebab - ৳400</button>
+        <button onclick="addToBill('BBQ Chicken Wings', 250)">BBQ Chicken Wings - ৳250</button>
+        <button onclick="addToBill('Beef Ribs', 600)">Beef Ribs - ৳600</button>
+        <button onclick="addToBill('Mixed BBQ Platter', 1000)">Mixed BBQ Platter - ৳1000</button>
+    </div>
+
+    <h2>Coffee & Beverages</h2>
+    <div class="menu">
+        <button onclick="addToBill('Espresso', 180)">Espresso - ৳180</button>
+        <button onclick="addToBill('Americano', 220)">Americano - ৳220</button>
+        <button onclick="addToBill('Cappuccino', 300)">Cappuccino - ৳300</button>
+        <button onclick="addToBill('Latte', 320)">Latte - ৳320</button>
+        <button onclick="addToBill('Iced Coffee', 350)">Iced Coffee - ৳350</button>
+        <button onclick="addToBill('Cold Coffee (with Ice Cream)', 400)">Cold Coffee (with Ice Cream) - ৳400</button>
+        <button onclick="addToBill('Mojito (Lime)', 300)">Mojito (Lime) - ৳300</button>
+        <button onclick="addToBill('Orange Juice', 200)">Orange Juice - ৳200</button>
+        <button onclick="addToBill('Chocolate Milkshake', 250)">Chocolate Milkshake - ৳250</button>
+    </div>
+    
+    <div class="bill">
+        <h2>Order Summary</h2>
+        <ul id="orderList"></ul>
+        <h3>Total: ৳<span id="totalPrice">0</span></h3>
+        <button onclick="generateBill()">Generate Bill</button>
+    </div>
+
+    <script>
+        let total = 0;
+        function addToBill(item, price) {
+            total += price;
+            document.getElementById("totalPrice").innerText = total;
+            let orderList = document.getElementById("orderList");
+            let listItem = document.createElement("li");
+            listItem.innerText = `${item} - ৳${price}`;
+            orderList.appendChild(listItem);
+        }
+
+        function generateBill() {
+            alert("Total Bill: ৳" + total);
+        }
+    </script>
+</body>
+</html>
